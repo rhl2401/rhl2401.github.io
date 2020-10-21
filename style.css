@@ -1,0 +1,20 @@
+.git-button {
+  display: block;
+  height: 34px;
+}
+.git-button img {
+  width: 30px;
+  display: inline-block;
+  transition: filter 0.3s ease;
+}
+.git-button p {
+  line-height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+}
+.git-button:hover img {
+  filter: invert(1);
+}
+
+/*# sourceMappingURL=style.css.map */
