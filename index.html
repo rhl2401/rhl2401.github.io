@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programmering - Rasmus 3.i</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container-fluid">
+
+<div class="row">
+    <div class="col-12 offset-0 col-sm-12 offset-sm-0 col-md-12 offset-md-0 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+        <h1>Programmering <small>Rasmus Lauridsen, 3.i</small></h1>
+        <hr>
+
+        <div class="card-deck" id="posts">
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "https://rasmuslauridsen.mitspace.dk/index.php",
+            success: function(result) {
+                console.log(result);
+                console.log(result["posts"]);
+                console.log(result["posts"].length);
+
+                for (let i=0; i<result["posts"].length; i++) {
+                    let post = result["posts"][i];
+                    $("#posts").append("<div class='col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3'>\n" +
+                        "                    <div class='card' style='width: 100%;'>\n" +
+                        "                        <div class='card-body'>\n" +
+                        "                            <h5 class='card-title'>"+ post["title"] +"</h5>\n" +
+                        "                            <h6 class='card-subtitle mb-2 text-muted'>"+ post["subtitle"] +"</h6>\n" +
+                        "                            <p class='card-text'>"+ post["description"] +"</p>\n" +
+                        "                            <a href='"+ post["url"] +"' target='_blank' class='btn btn-outline-dark'>\n" +
+                        "                                <div class='git-button'>\n" +
+                        "                                    <img src='https://icons-for-free.com/iconfiles/png/512/github+icon-1320168274457504277.png' class='img-reponsive'>\n" +
+                        "                                    <p>Se repo</p>\n" +
+                        "                                </div>\n" +
+                        "                            </a>\n" +
+                        "                        </div>\n" +
+                        "                    </div>\n" +
+                        "                </div>");
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
