@@ -1,3 +1,35 @@
+$black: #343a40;
+
+.card {
+    border-radius: 10px;
+    transition: color .3s ease, background-color .3s ease;
+
+    .card-subtitle {
+        text-transform: capitalize;
+    }
+
+    &:hover {
+        background-color: $black;
+        color: #fff;
+
+        .card-body {
+            a.btn {
+                background-color: #fff;
+                color: $black;
+
+                &:hover {
+                    background-color: lighten($black, 20);
+                    color: #fff;
+                    img{
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 .git-button {
     display: block;
     height: 34px;
@@ -14,11 +46,8 @@
         padding-right: 5px;
         display: inline-block;
     }
+}
 
-
-    &:hover {
-        img{
-            filter: invert(1);
-        }
-    }
+.card {
+    margin-bottom: 30px !important;
 }
